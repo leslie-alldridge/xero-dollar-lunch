@@ -2,6 +2,9 @@
   "name": "xero-dollar-lunch",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": "https://github.com/leslie-alldridge/xero-dollar-lunch.git",
   "author": "leslie.alldridge <leslie.alldridge@gmail.com>",
   "license": "MIT",
