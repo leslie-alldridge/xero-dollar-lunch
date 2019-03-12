@@ -26,6 +26,7 @@ bot.on('message', (data) => {
 
 handleMessage = (message) => {
   console.log(message);
+  bot.postMessageToChannel('DGXCVVD63', 'cheers')
   return 'i got your message'
 }
 
