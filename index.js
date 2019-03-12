@@ -3,8 +3,8 @@ const SlackBot = require('slackbots')
 const PORT = 3000 || process.env.PORT;
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 let bot = new SlackBot({
   token: process.env.TOKEN,
