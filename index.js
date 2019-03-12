@@ -25,12 +25,14 @@ bot.on('message', (data) => {
 })
 
 handleMessage = (message) => {
-  console.log(message);
+  console.log(message );
   const params = {
     icon_emoji: ':cat:'
   }
-  bot.postMessageToUser('UFTN5S50B', 'cheers', params)
-  return 'i got your message'
+  bot.postMessageToUser('UFTN5S50B', 'hi').then(function(data) {
+    console.log('message sent @@');
+    
+})
 }
 
 app.listen(process.env.PORT || PORT, function() {
