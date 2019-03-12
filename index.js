@@ -26,7 +26,10 @@ bot.on('message', (data) => {
 
 handleMessage = (message) => {
   console.log(message);
-  bot.postMessageToChannel('DGXCVVD63', 'cheers')
+  const params = {
+    icon_emoji: ':cat:'
+  }
+  bot.postMessageToUser('UFTN5S50B', 'cheers', params)
   return 'i got your message'
 }
 
