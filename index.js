@@ -17,6 +17,7 @@ bot.on("start", () => {
 })
 
 bot.on('message', (data) => {
+  console.log(data)
   if (data.type !== "message"){
     return
   }
