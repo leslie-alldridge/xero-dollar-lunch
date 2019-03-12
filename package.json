@@ -1,0 +1,11 @@
+{
+  "name": "xero-dollar-lunch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leslie-alldridge/xero-dollar-lunch.git",
+  "author": "leslie.alldridge <leslie.alldridge@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
