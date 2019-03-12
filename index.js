@@ -29,7 +29,7 @@ handleMessage = (message) => {
   const params = {
     icon_emoji: ':cat:'
   }
-  bot.postMessageToUser('UFTN5S50B', 'hi').then(function(data) {
+  bot.postMessage('UFTN5S50B', 'hi', params).then(function(data) {
     console.log('message sent @@');
     
 })
