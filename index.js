@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const SlackBot = require('slackbots')
 const PORT = 3000 || process.env.PORT;
