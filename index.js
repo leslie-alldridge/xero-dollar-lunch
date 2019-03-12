@@ -18,18 +18,19 @@ bot.on("start", () => {
 
 bot.on('message', (data) => {
   console.log(data)
-  if (data.type !== "message"){
+
+  if (data.type !== "message" && !data.subtype){
     return
   }
-  handleMessage(data.text)
+  handleMessage(data.text, data.user)
 })
 
-handleMessage = (message) => {
+handleMessage = (message, user) => {
   console.log(message );
   const params = {
     icon_emoji: ':cat:'
   }
-  bot.postMessage('UFTN5S50B', 'hi', params).then(function(data) {
+bot.postMessage(user, `you wrote ${message}`, params).then(function(data) {
     console.log('message sent @@');
     
 })
