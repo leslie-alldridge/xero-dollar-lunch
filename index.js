@@ -4,9 +4,6 @@ const SlackBot = require("slackbots");
 const PORT = 3000 || process.env.PORT;
 const app = express();
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
 let bot = new SlackBot({
   token: process.env.TOKEN,
   name: "appy"
@@ -31,17 +28,17 @@ handleMessage = (message, user) => {
     icon_emoji: ":cat:"
   };
   let defaultReply =
-    "Sorry your request wasn't understood. Please enter a dollar value e.g. $3 or get a random meal e.g. $3 random";
+    "Sorry your request wasn't understood. Please enter a dollar value (between 1 and 10 inclusive) e.g. $3 or get a random meal e.g. $3 random";
 
   let foodData = [
     ["$1 - Moro Bar"],
     [
       "$2 - Porridge. For lunch. (?)",
-      "Dirty 'Don't-go-there' pies from the convenience stores"
+      "$2 - Dirty 'Don't-go-there' pies from the convenience stores"
     ],
     ["$3 - Muffin from BP garage", "$3+ - Sandwiches from Cozy Cake Shop"],
     [
-      "4 pieces of sushi at One Sushi (BYO container to be more eco)",
+      "$4 + - 4 pieces of sushi at One Sushi (BYO container to be more eco)",
       "$4.50 - Bacon and egg slice at Cozy Cake Shop",
       "$4.50 - Rice paper rolls at Cozy Cake Shop"
     ],
@@ -80,9 +77,95 @@ handleMessage = (message, user) => {
     ]
   ];
 
-  // RANDOM OUTCOMES
+  // NON RANDOM OUTCOMES
+  if (message.includes("$1") && !message.includes("random")) {
+    let item = foodData[0].join(" , ");
+    console.log(`your item is ${item}`);
 
-  if (message.includes("$3 random")) {
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$2") && !message.includes("random")) {
+    let item = foodData[1].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$3") && !message.includes("random")) {
+    let item = foodData[2].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$4") && !message.includes("random")) {
+    let item = foodData[3].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$5") && !message.includes("random")) {
+    let item = foodData[4].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$6") && !message.includes("random")) {
+    let item = foodData[5].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$7") && !message.includes("random")) {
+    let item = foodData[6].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$8") && !message.includes("random")) {
+    let item = foodData[7].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$9") && !message.includes("random")) {
+    let item = foodData[8].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$10") && !message.includes("random")) {
+    let item = foodData[9].join(" , ");
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  }
+
+  // RANDOM OUTCOMES
+  else if (message.includes("$1 random")) {
+    let item = foodData[0][Math.floor(Math.random() * foodData[2].length)];
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$2 random")) {
+    let item = foodData[1][Math.floor(Math.random() * foodData[2].length)];
+    console.log(`your item is ${item}`);
+
+    bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$3 random")) {
     let item = foodData[2][Math.floor(Math.random() * foodData[2].length)];
     console.log(`your item is ${item}`);
 
