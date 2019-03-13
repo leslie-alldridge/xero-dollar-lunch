@@ -78,7 +78,7 @@ handleMessage = (message, user) => {
   ];
 
   // NON RANDOM OUTCOMES
-  if (message.includes("$1") && !message.includes("random")) {
+  if (message.includes("$1") && !message.includes("random")&& !message.includes("0")) {
     let item = foodData[0].join(" , ");
     console.log(`your item is ${item}`);
 
@@ -141,7 +141,7 @@ handleMessage = (message, user) => {
     bot.postMessage(user, item, params).then(function(data) {
       console.log("message sent @@");
     });
-  } else if (message.includes("$10") && !message.includes("random")) {
+  } else if (message.includes("$10") && !message.includes("random") && !message.includes("below")) {
     let item = foodData[9].join(" , ");
     console.log(`your item is ${item}`);
 
@@ -151,7 +151,7 @@ handleMessage = (message, user) => {
   }
 
   // RANDOM OUTCOMES
-  else if (message.includes("$1 random")) {
+  else if (message.includes("$1 random") && !message.includes("0")) {
     let item = foodData[0][Math.floor(Math.random() * foodData[2].length)];
     console.log(`your item is ${item}`);
 
@@ -214,11 +214,24 @@ handleMessage = (message, user) => {
     bot.postMessage(user, item, params).then(function(data) {
       console.log("message sent @@");
     });
-  } else if (message.includes("$10 random")) {
+  } else if (message.includes("$10 random") && !message.includes("below")) {
     let item = foodData[9][Math.floor(Math.random() * foodData[9].length)];
     console.log(`your item is ${item}`);
 
     bot.postMessage(user, item, params).then(function(data) {
+      console.log("message sent @@");
+    });
+  } else if (message.includes("$10 below")) {
+    let items = []
+    for (let i = 0; i < foodData.length; i++){
+      console.log('in loop');
+      
+      items.push(foodData[i].join("\n"))
+    }
+   
+    console.log(`your items are ${items}`);
+
+    bot.postMessage(user, items.join('\n'), params).then(function(data) {
       console.log("message sent @@");
     });
   } else {
